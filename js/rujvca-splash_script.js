@@ -3,14 +3,14 @@
  * Return an array with all image li elements
  */
 var load = function() {
-
+	var imgs = [];
 };
 
 /* Get every image that has loaded and store them in an array
  * Testing only
  */
 var get_img = function() {
-	var imgs = []
+	var imgs = [];
 	
 	$( "li img" ).each(function(index, i){
 		imgs.push(i);
@@ -22,8 +22,8 @@ var get_img = function() {
 
 /* Hides all images except the one at the index passed in */
 var hideaway = function(list, i) {
-	list.forEach(function(elem, index){
-		if (index === i) {
+	$.each(list, function(index, elem) {
+		if (parseInt($(this).attr('id')) === i) {
 			$(this).fadeTo(500, 1);
 		} else {
 			$(this).fadeTo(500, 0);

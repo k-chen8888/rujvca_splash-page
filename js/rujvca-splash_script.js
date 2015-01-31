@@ -1,8 +1,7 @@
 /* Load images based on an info file
  * Write images into document and resizes them to fit window
- * Return an array with all image li elements
  */
-var load = function() {
+var load = function(data) {
 	var imgs = [];
 };
 
@@ -31,6 +30,14 @@ var hideaway = function(list, i) {
 	});
 };
 
+/* Hides image i and un-hides image j */
+var change_hide = function(list, i, j) {
+	/* Reveal element j */
+	$(list[j]).fadeTo(500, 1);
+	/* Hide element i */
+	$(list[i]).fadeTo(500, 0);
+}
+
 /* Fixes an annoying negative modulo tick
  * Calculates x % y
  */
@@ -38,8 +45,10 @@ var modulo = function(x, y){
 	return (x + y) % y;
 }
 
-$(document).ready(function() {
+$(window).load(function() {
 	/* Current image that should be showing */
+	var visible = 0;
+	/* Next image to show */
 	var index = 0;
 	
 	/* Images on the page */
@@ -50,15 +59,15 @@ $(document).ready(function() {
 	
 	/* Go to the next image (right) */
 	$('#right_scroll img').click(function(){
-		index = modulo(index + 1, imgs.length);
-		hideaway(imgs, index);
-		console.log(index);
+		visible = modulo(index + 1, imgs.length);
+		change_hide(imgs, index, visible);
+		index = visible;
 	});
 	
 	/* Go to the previous image (left) */ 
 	$('#left_scroll img').click(function(){
-		index = modulo(index - 1, imgs.length);
-		hideaway(imgs, index);
-		console.log(index);
+		visible = modulo(index - 1, imgs.length);
+		change_hide(imgs, index, visible);
+		index = visible;
 	});
 });  

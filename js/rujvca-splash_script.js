@@ -54,20 +54,46 @@ $(window).load(function() {
 	/* Images on the page */
 	var imgs = get_img();
 	
+	/* Prevent events from firing if they are already going on */
+	var ignore = false;
+	
 	/* Everything but image index 0 is hidden to start*/
 	hideaway(imgs, index);
 	
-	/* Go to the next image (right) */
-	$('#right_scroll img').click(function(){
+	/* Goes to next image */
+	var nextimg = function(){
 		visible = modulo(index + 1, imgs.length);
 		change_hide(imgs, index, visible);
 		index = visible;
+	}
+	/* Automatically goes to the next image every 2 seconds */
+	var autonext = window.setInterval(nextimg, 2000);
+	
+	/* Go to the next image (right) */
+	$('#right_scroll img').click(function(){
+		/* Stay on new image for 2 seconds */
+		clearInterval(autonext);
+		
+		/* Go to new image */
+		visible = modulo(index + 1, imgs.length);
+		change_hide(imgs, index, visible);
+		index = visible;
+		
+		/* Start up interval again */
+		autonext = window.setInterval(nextimg , 2000);
 	});
 	
 	/* Go to the previous image (left) */ 
 	$('#left_scroll img').click(function(){
+		/* Stay on new image for 2 seconds */
+		clearInterval(autonext);
+		
+		/* Go to new image */
 		visible = modulo(index - 1, imgs.length);
 		change_hide(imgs, index, visible);
 		index = visible;
+		
+		/* Start up interval again */
+		autonext = window.setInterval(nextimg , 2000);
 	});
-});  
+});

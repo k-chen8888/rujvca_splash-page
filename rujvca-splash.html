@@ -4,15 +4,6 @@
 		<link rel="stylesheet" href="css/rujvca-splash_style.css" type="text/css" media="all">
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js?ver=2.9.2"></script>
 		<script type="text/javascript" src="js/rujvca-splash_script.js"></script>
-		
-		<script type="text/javascript">
-			/* Get info from a file */
-			$(document).ready(function() {
-				$.get("./test-imgs/test-imgs_info.txt", function(data) {
-					console.log(data);
-				});
-			});
-		</script>
 	</head>
 	
 	<body>
@@ -20,16 +11,22 @@
 			<div id='left_scroll'><img src='test-imgs/left.png' /></div>
 			<div id='carousel_inner'>
 				<ul id='carousel_ul'>
-					<li><a href='#'><img id="0" src='test-imgs/item1.jpg' /></a></li>
-					<li><a href='#'><img id="1" src='test-imgs/item2.jpg' /></a></li>
-					<li><a href='#'><img id="2" src='test-imgs/item3.jpg' /></a></li>
-					<li><a href='#'><img id="3" src='test-imgs/item4.jpg' /></a></li>
-					<li><a href='#'><img id="4" src='test-imgs/item5.jpg' /></a></li>
+					<li><a href='#'><img id='0' src='test-imgs/item1.jpg' /></a></li>
+					<li><a href='#'><img id='1' src='test-imgs/item2.jpg' /></a></li>
+					<li><a href='#'><img id='2' src='test-imgs/item3.jpg' /></a></li>
+					<li><a href='#'><img id='3' src='test-imgs/item4.jpg' /></a></li>
+					<li><a href='#'><img id='4' src='test-imgs/item5.jpg' /></a></li>
 				</ul>
 			</div>
 			<div id='right_scroll'><img src='test-imgs/right.png' /></div>
 		</div>
+		<div id='banner'>
+		</div>
 		<div id='navbar_container'>
+		</div>
+		<div id='about_club'>
+		</div>
+		<div id='about_eboard'>
 		</div>
 	</body>
 </html>

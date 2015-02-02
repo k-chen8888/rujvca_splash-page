@@ -1,37 +1,63 @@
-/* A few global variables so that future eboard members can edit the page freely */
+/* A few global variables so that future eboard members can edit the page freely
+ * Follow the format if unsure
+ */
 var slides = [];
 
 /* Add a slideshow image as follows
  * 		slides.push("filename.jpg");
  * Check model if unsure
  */
-slides.push("");
-slides.push("");
-slides.push("");
-slides.push("");
-slides.push("");
+slides.push("test-imgs/item1.jpg");
+slides.push("test-imgs/item2.jpg");
+slides.push("test-imgs/item3.jpg");
+slides.push("test-imgs/item4.jpg");
+slides.push("test-imgs/item5.jpg");
 
 /* Text that goes in the banner overlay
  * HTML tags allowed
  */
-var banner_text = "";
+var banner_text = "" +
+"<p>" +
+	"This is a test" +
+"</p>" +
+"";
 
 /* Text for the about the club section
  * HTML tags allowed
  */
-var about_text = "";
+var about_text = "" +
+"<p>" +
+	"No description yet" +
+"</p>" +
+"";
 
 /* Text for the eboard info section
  * HTML tags allowed
  */
-var eboard_text = "";
+var eboard_text = "" +
+"<p>" +
+	"Election by Russian democracy" +
+"</p>" +
+"";
 
 
-/* Load images based on an info file
- * Write images into document and resizes them to fit window
+/* Write the document
+ * Use given variables above
  */
-var load = function(data) {
-	var imgs = [];
+var load = function() {
+	/* Write the images to the 'carousel_ul' div */
+	$.each(function(index, img) {
+		$("carousel_ul").append("<li><a href='#'><img id='" + index + "' src='" + img + "' /></a></li>");
+	});
+
+	/* Add a banner */
+	$("banner").append(banner_text);
+
+	/* Add the club description */
+	$("about_club").append(about_text);
+
+	/* Add the eboard description */
+	$("about_eboard").append(eboard_text);
 };
 
 /* Get every image that has loaded and store them in an array

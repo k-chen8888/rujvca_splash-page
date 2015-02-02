@@ -1,3 +1,32 @@
+/* A few global variables so that future eboard members can edit the page freely */
+var slides = [];
+
+/* Add a slideshow image as follows
+ * 		slides.push("filename.jpg");
+ * Check model if unsure
+ */
+slides.push("");
+slides.push("");
+slides.push("");
+slides.push("");
+slides.push("");
+
+/* Text that goes in the banner overlay
+ * HTML tags allowed
+ */
+var banner_text = "";
+
+/* Text for the about the club section
+ * HTML tags allowed
+ */
+var about_text = "";
+
+/* Text for the eboard info section
+ * HTML tags allowed
+ */
+var eboard_text = "";
+
+
 /* Load images based on an info file
  * Write images into document and resizes them to fit window
  */
@@ -13,7 +42,6 @@ var get_img = function() {
 	
 	$( "li img" ).each(function(index, i){
 		imgs.push(i);
-		console.log(index + ": " + i);
 	});
 	
 	return imgs;

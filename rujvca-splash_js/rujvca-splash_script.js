@@ -14,13 +14,9 @@ slides.push("test-imgs/item4.jpg");
 slides.push("test-imgs/item5.jpg");
 
 /* Text that goes in the banner overlay
- * HTML tags allowed
+ * HTML tags allowed, but NO HEADER TAGS (don't use h1, h2, etc.)
  */
-var banner_text = "" +
-"<p>" +
-	"This is a test" +
-"</p>" +
-"";
+var banner_text = "This is a test";
 
 /* Text for the about the club section
  * HTML tags allowed
@@ -46,18 +42,62 @@ var eboard_text = "" +
  */
 var load = function() {
 	/* Write the images to the 'carousel_ul' div */
-	$.each(function(index, img) {
-		$("carousel_ul").append("<li><a href='#'><img id='" + index + "' src='" + img + "' /></a></li>");
+	$.each(slides, function(index, img) {
+		$("#carousel_ul").append( "<li><a href='#'><img id='" + index + "' src='" + img + "' /></a></li>" );
 	});
-
-	/* Add a banner */
-	$("banner").append(banner_text);
-
+	
+	/* Add a banner
+	 * 	Use different sizes depending on screen size
+	 *
+	 * Banner styles
+	 * 	Move it to its correct position over carousel_ul
+	 * 	Set bg color to #B8B8B8 (gray), rgba(184, 184, 184, .5)
+	 */
+	if ( $(window).width() <= 727 ) { /* Mobile */
+		$("#banner").append("<h3>" + banner_text + "</h3>");
+	} else if ( $(window).width() > 727 && $(window).width() <= 1010 ) { /* Tablet */
+		$("#banner").append("<h2>" + banner_text + "</h2>");
+	} else { /* Desktop */
+		$("#banner").append("<h1>" + banner_text + "</h1>");
+	}
+	$("#banner").css({
+		"position": "absolute",
+		"zIndex": "9002",
+		"top": $( document ).height() * .20 + "px",
+		"left": $( document ).width() * .20 + "px",
+		"backgroundColor": "rgba(184, 184, 184, .40)",
+		"border-radius": "5px",
+		"padding": "0px 10px 0px 10px"  /* Left and right 10px padding */
+	});
+	
+	/* Navbar
+	 *
+	 * Sticky when it reaches top
+	 * Images when not active, text when active
+	 */
+	/* First, add div elements to hold the buttons */
+	$("#navbar_container").append("<div id='about-button'></div>");
+	$("#navbar_container").append("<div id='eboard-info-button'></div>");
+	$("#navbar_container").append("<div id='to-blog-button'></div>");
+	/* Add icons */
+	/* Add text */
+	$("#about-button").append("About the Club");
+	$("#eboard-info-button").append("About the EBoard");
+	$("#to-blog-button").append("<a href='http://rujvca.org'>To the Blog!</a>");
+	/* Add styles */
+	if ( $(window).width() <= 727 ) { /* Mobile */
+		
+	} else if ( $(window).width() > 727 && $(window).width() <= 1010 ) { /* Tablet */
+		
+	} else { /* Desktop */
+		
+	}
+	
 	/* Add the club description */
-	$("about_club").append(about_text);
-
+	$("#about_club").append(about_text);
+	
 	/* Add the eboard description */
-	$("about_eboard").append(eboard_text);
+	$("#about_eboard").append(eboard_text);
 };
 
 /* Get every image that has loaded and store them in an array
@@ -104,6 +144,9 @@ $(window).load(function() {
 	var visible = 0;
 	/* Next image to show */
 	var index = 0;
+	
+	/* Put dynamic content on the page */
+	load();
 	
 	/* Images on the page */
 	var imgs = get_img();

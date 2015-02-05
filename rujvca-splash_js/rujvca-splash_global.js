@@ -25,6 +25,12 @@ var about_text = "" +
 "<p>" +
 	"No description yet" +
 "</p>" +
+"<p>" +
+	"No description yet" +
+"</p>" +
+"<p>" +
+	"No description yet" +
+"</p>" +
 "";
 
 /* Text for the eboard info section

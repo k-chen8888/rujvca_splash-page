@@ -219,4 +219,15 @@ $(window).load(function() {
 		/* Start up interval again */
 		autonext = window.setInterval(nextimg , 2000);
 	});
+
+	/* Cross-browser sticky navbar */
+	var originalYOffset = $("#navbar_container").offset().top;
+	
+	document.addEventListener('scroll', function() {
+		if(window.scrollY >= originalYOffset) {
+			$("#navbar_container").addClass('sticky');
+		} else {
+			$("#navbar_container").removeClass('sticky');
+		}
+	});
 });

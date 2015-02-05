@@ -1,5 +1,5 @@
 /* Write the document
- * Use given variables above
+ * Use given variables in 'rujvca-splash_global.js'
  */
 var load = function() {
 	/* Write the images to the 'carousel_ul' div */
@@ -67,20 +67,24 @@ var load = function() {
 	$("#eboard-info-button").append("<a id='eboard-info-navbutton' href='#'>About the E-Board</a>");
 	$("#to-blog-button").append("<a id='to-blog-navbutton' href='http://rujvca.org'>To the Blog!</a>");
 	/* Add universal styles */
-	$("#about-navbutton").position({
+	$("#about-navbutton").position({ /* Centers text in nav buttons */
 		my: "center",
 		at: "center",
 		of: "#about-button"
 	});
-	$("#eboard-info-navbutton").position({
+	$("#eboard-info-navbutton").position({ /* Centers text in nav buttons */
 		my: "center",
 		at: "center",
 		of: "#eboard-info-button"
 	});
-	$("#to-blog-navbutton").position({
+	$("#to-blog-navbutton").position({ /* Centers text in nav buttons */
 		my: "center",
 		at: "center",
 		of: "#to-blog-button"
+	});
+	$("#about-navbutton, #eboard-info-navbutton, #to-blog-navbutton").css({ /* Removes link formatting */
+		"text-decoration": "none",
+		"color": "rgb(48, 48, 48)" /* Dark gray #303030 */
 	});
 	/* Add styles unique to displays of specific sizes */
 	if ( $(window).width() <= 727 ) { /* Mobile */

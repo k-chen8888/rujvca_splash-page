@@ -63,8 +63,8 @@ var load = function() {
 	});
 	/* Add icons */
 	/* Add text */
-	$("#about-button").append("<a id='about-navbutton' href='#'>About the Club</a>");
-	$("#eboard-info-button").append("<a id='eboard-info-navbutton' href='#'>About the E-Board</a>");
+	$("#about-button").append("<a id='about-navbutton' href='#about_club'>About the Club</a>");
+	$("#eboard-info-button").append("<a id='eboard-info-navbutton' href='#about_club'>About the E-Board</a>");
 	$("#to-blog-button").append("<a id='to-blog-navbutton' href='http://rujvca.org'>To the Blog!</a>");
 	/* Add universal styles */
 	$("#about-navbutton").position({ /* Centers text in nav buttons */
@@ -180,7 +180,7 @@ $(window).load(function() {
 	/* Prevent events from firing if they are already going on */
 	var ignore = false;
 	
-	/* Everything but image index 0 is hidden to start*/
+	/* Everything but image index 0 is hidden to start */
 	hideaway(imgs, index);
 	
 	/* Goes to next image */
@@ -230,4 +230,8 @@ $(window).load(function() {
 			$("#navbar_container").removeClass('sticky');
 		}
 	});
+
+	/* The navbar displays text when inactive and icons when active
+	 * Display only text when the page first loads
+	 */
 });

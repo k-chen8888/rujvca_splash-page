@@ -1,3 +1,15 @@
+/* Custom fonts */
+@font-face {
+  font-family: "about-font";
+  src: url('rujvca-splash_fonts/rujvca_about-font.ttf');
+  format("truetype");
+}
+
+#test {
+	font-family: "about-font", sans-serif;
+}
+
+/* General styles */
 body, p {
 	font-family: 'Roboto Slab', serif;
 }
